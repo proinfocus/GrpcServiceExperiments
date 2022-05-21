@@ -1,0 +1,9 @@
+﻿        app.MapPost("/grpc/{SERVICE}/{METHOD}", async ({REQUEST} request) =>
+        {
+            try
+            {
+                var result = await new {SERVICE}.{SERVICE}Client(channel).{METHOD}Async(request);
+                return Results.Ok(JsonSerializer.Serialize(result));
+            }
+            catch (Exception ex) { return Results.Problem(ex.Message); }
+        });

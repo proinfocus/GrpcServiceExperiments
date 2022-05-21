@@ -1,0 +1,15 @@
+﻿syntax = "proto3";
+option csharp_namespace = "GrpcService.Server";
+package process;
+
+service Processor {
+  rpc ProcessMessage (Request) returns (Response);
+}
+
+message Request {
+  string name = 1;
+}
+
+message Response {
+  string message = 1;
+}
