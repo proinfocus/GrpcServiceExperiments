@@ -2,14 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <Nullable>enable</Nullable>
+    <Nullable>enable</Nullable>    
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="template-content.txt" />
-    <None Remove="template.txt" />
-  </ItemGroup>
-
   <ItemGroup>
     <EmbeddedResource Include="template-content.txt" />
     <EmbeddedResource Include="template.txt" />
