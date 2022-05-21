@@ -3,6 +3,18 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Nullable>enable</Nullable>
+    <Title>Proinfocus gRPC</Title>
+    <Version>0.0.1</Version>
+    <Authors>Proinfocus</Authors>
+    <Description>Package to generate Minimal Web API endpoints for given gRPC Service.</Description>
+    <Copyright>© 2022 Proinfocus</Copyright>
+    <PackageProjectUrl>https://github.com/proinfocus/GrpcServiceExperiments/tree/master/Proinfocus.gRPC</PackageProjectUrl>
+    <PackageIcon>Proinfocus Logo.png</PackageIcon>
+    <RepositoryUrl>https://github.com/proinfocus/GrpcServiceExperiments/tree/master/Proinfocus.gRPC</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>proinfocus grpc webapi endpoints</PackageTags>
+    <PackageReleaseNotes>An experiment to generate minimal api endpoints for the gRPC services.</PackageReleaseNotes>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,8 +23,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="favicon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Include="template-content.txt" />
     <EmbeddedResource Include="template.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\..\..\Dropbox\My Documents\Proinfocus Logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
