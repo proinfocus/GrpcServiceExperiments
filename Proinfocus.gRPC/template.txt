@@ -5,7 +5,7 @@ namespace {NAMESPACE}.Endpoints;
 
 public static class {SERVICE}Endpoints
 {
-	public static void Use{SERVICE}Endpoints(this WebApplication app, string grpcUrl)
+    public static void Use{SERVICE}Endpoints(this WebApplication app, string grpcUrl)
     {
         var channel = GrpcChannel.ForAddress(grpcUrl);
 {ENDPOINTS}
