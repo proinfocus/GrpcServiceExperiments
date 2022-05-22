@@ -1,4 +1,4 @@
-# GrpcServiceExperiments
+# gRPC Service Experiments
 
 An experiment to generate minimal api endpoints for the gRPC services.
 
