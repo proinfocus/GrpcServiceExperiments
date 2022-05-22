@@ -7,13 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Middlewares\**" />
-    <Content Remove="Middlewares\**" />
-    <EmbeddedResource Remove="Middlewares\**" />
-    <None Remove="Middlewares\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Grpc.AspNetCore" Version="2.46.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />
   </ItemGroup>

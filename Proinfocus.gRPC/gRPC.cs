@@ -11,7 +11,10 @@ namespace Proinfocus
         public static void CreateEndpoints<T>() where T : class
         {
             var service = Activator.CreateInstance(typeof(T));
-            var methods = service.GetType().GetMethods().Where(a => a.DeclaringType != typeof(object));
+            var methods = service.GetType().GetMethods()
+                                 .Where(a => a.DeclaringType != typeof(object) &&
+                                             a.IsPublic == true &&                                             
+                                             a.IsConstructor == false);
 
             string path = Path.Combine(Environment.CurrentDirectory, "Endpoints");
             if (!Directory.Exists(path)) Directory.CreateDirectory(path);
