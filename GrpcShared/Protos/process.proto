@@ -1,9 +1,11 @@
 ﻿syntax = "proto3";
+import "google/protobuf/empty.proto";
 option csharp_namespace = "GrpcService.Server";
 package process;
 
 service Processor {
   rpc ProcessMessage (Request) returns (Response);
+  rpc DisplayCurrentDateTime (google.protobuf.Empty) returns (Response);
 }
 
 message Request {

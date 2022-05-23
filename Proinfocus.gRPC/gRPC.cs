@@ -35,7 +35,20 @@ namespace Proinfocus
                 serviceMethod = serviceMethod.Replace("{METHOD}", method.Name);                
                 var args = method.GetParameters();
                 foreach (var arg in args.Where(a => !a.ParameterType.Name.Contains("ServerCallContext")))
-                    serviceMethod = serviceMethod.Replace("{REQUEST}", arg.ParameterType.Name);
+                {
+                    if (arg.ParameterType.Name == "Empty")
+                    {
+                        serviceMethod = serviceMethod.Replace("{VERB}", "Get");
+                        serviceMethod = serviceMethod.Replace("{REQUEST}", string.Empty);
+                        serviceMethod = serviceMethod.Replace("{REQUESTOBJECT}", "new Empty()");
+                    }
+                    else
+                    {
+                        serviceMethod = serviceMethod.Replace("{VERB}", "Post");
+                        serviceMethod = serviceMethod.Replace("{REQUEST}", $"{ arg.ParameterType.Name } request");
+                        serviceMethod = serviceMethod.Replace("{REQUESTOBJECT}", "request");
+                    }
+                }
 
                 data.AppendLine(serviceMethod);
                 data.AppendLine();
