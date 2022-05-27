@@ -13,20 +13,26 @@ public static class ProcessorServiceEndpoints
         {
             try
             {
+                if (channel.State != Grpc.Core.ConnectivityState.Ready)
+                    await channel.ConnectAsync();
                 var result = await new Processor.ProcessorClient(channel).ProcessMessageAsync(request);
                 return Results.Ok(JsonSerializer.Serialize(result));
             }
             catch (Exception ex) { return Results.Problem(ex.Message); }
+            finally { await channel.ShutdownAsync(); }
         });
 
         app.MapGet("/grpc/Processor/DisplayCurrentDateTime", async () =>
         {
             try
             {
+                if (channel.State != Grpc.Core.ConnectivityState.Ready)
+                    await channel.ConnectAsync();
                 var result = await new Processor.ProcessorClient(channel).DisplayCurrentDateTimeAsync(new Empty());
                 return Results.Ok(JsonSerializer.Serialize(result));
             }
             catch (Exception ex) { return Results.Problem(ex.Message); }
+            finally { await channel.ShutdownAsync(); }
         });
 
 

@@ -2,8 +2,11 @@
         {
             try
             {
+                if (channel.State != Grpc.Core.ConnectivityState.Ready)
+                    await channel.ConnectAsync();
                 var result = await new {SERVICE}.{SERVICE}Client(channel).{METHOD}Async({REQUESTOBJECT});
                 return Results.Ok(JsonSerializer.Serialize(result));
             }
             catch (Exception ex) { return Results.Problem(ex.Message); }
+            finally { await channel.ShutdownAsync(); }
         });
